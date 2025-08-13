@@ -50,10 +50,19 @@ Product B,150,South
 Product C,80,East
 Product D,120,West"""
     
+    # Create questions file
+    questions_content = """Analyze the provided sales data and answer:
+
+1. What is the total sales across all products?
+2. Which region has the highest sales?
+3. Create a bar chart showing sales by region.
+4. What is the average sales per product?"""
+    
     try:
-        files = {
-            'files': ('test_data.csv', csv_content, 'text/csv')
-        }
+        files = [
+            ('files', ('questions.txt', questions_content, 'text/plain')),
+            ('files', ('test_data.csv', csv_content, 'text/csv'))
+        ]
         
         response = requests.post(
             f"{base_url}/api/", 
