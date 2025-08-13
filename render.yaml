@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: data-analyst-agent-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python production_ready_api.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        fromService:
+          type: web
+          name: data-analyst-agent-api
+          property: port
+    healthCheckPath: /health

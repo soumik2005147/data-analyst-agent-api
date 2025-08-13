@@ -1,0 +1,9 @@
+Analyze the provided sales data and answer the following questions:
+
+1. How many sales orders are in the dataset?
+2. Which region has the highest total sales?
+3. What is the average sales amount across all orders?
+4. What is the correlation between order_id and sales amount?
+5. Create a bar chart showing total sales by region.
+6. Which date had the maximum sales amount?
+7. What is the total sales for the East region?

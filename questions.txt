@@ -1,0 +1,5 @@
+What are the key insights from this sales data?
+Which product categories perform best?
+What are the sales trends by region and salesperson?
+Provide recommendations for improving sales performance.
+Create visualizations showing the most important patterns.

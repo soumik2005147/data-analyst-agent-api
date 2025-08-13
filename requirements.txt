@@ -1,0 +1,59 @@
+# Data Science Dependencies
+
+# Core data manipulation and analysis
+pandas>=1.5.0
+numpy>=1.24.0
+
+# Visualization libraries
+matplotlib>=3.6.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+scipy>=1.10.0
+
+# Web API Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# File processing and web scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Database and data processing
+duckdb>=0.9.0
+openpyxl>=3.1.0  # Excel file support
+xlsxwriter>=3.1.0  # Excel writing
+
+# Environment management
+python-dotenv>=1.0.0
+
+# LLM integration
+openai>=1.3.0
+
+# Image processing
+Pillow>=10.0.0
+
+# Jupyter ecosystem (optional for development)
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+
+# Development and testing
+pytest>=7.4.0
+black>=23.0.0  # Code formatting
+flake8>=6.0.0  # Linting
+
+# Optional ML libraries (uncomment as needed)
+# tensorflow>=2.13.0
+# torch>=2.0.0
+# xgboost>=1.7.0
+# lightgbm>=4.0.0
+
+# Statistical analysis
+statsmodels>=0.14.0
+
+# Time series analysis
+# prophet>=1.1.0

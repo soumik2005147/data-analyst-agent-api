@@ -1,0 +1,6 @@
+What is the total sales revenue for each category?
+Which salesperson has the highest total sales?
+What is the monthly sales trend?
+Which region performs best in terms of revenue?
+What is the average order value by customer type?
+Create a summary of top 5 products by revenue
