@@ -2263,41 +2263,6 @@ async def process_grader_request(questions_content: str, data_files: List, reque
     except Exception as e:
         logger.error(f"[{request_id}] Error processing grader request: {e}")
         return {}
-            
-            if filename == 'questions.txt':
-                questions_content = content.decode('utf-8', errors='ignore')
-                logger.info(f"[{request_id}] Found questions.txt with {len(questions_content)} characters")
-            elif filename.endswith('.csv'):
-                # Save CSV files temporarily for analysis
-                csv_content = content.decode('utf-8', errors='ignore')
-                with open(file.filename, 'w', encoding='utf-8') as f:
-                    f.write(csv_content)
-                uploaded_data_files.append(file.filename)
-                logger.info(f"[{request_id}] Saved uploaded CSV: {file.filename}")
-        
-        if not questions_content:
-            raise HTTPException(status_code=400, detail="No questions.txt file found in upload")
-        
-        # Process the questions with 5-minute timeout for ENTIRE request
-        logger.info(f"[{request_id}] Starting analysis for: {questions_content[:200]}...")
-        
-        # Parse questions - handle both single comprehensive requests and multiple separate questions
-        parsed_questions = parse_questions_content(questions_content)
-        logger.info(f"[{request_id}] Parsed {len(parsed_questions)} question(s)")
-        
-        # Process all questions within the single 5-minute timeout
-        try:
-            analysis_task = asyncio.create_task(process_multiple_questions(parsed_questions, request_id))
-            result = await asyncio.wait_for(analysis_task, timeout=300)  # 5 minutes for ENTIRE request
-            
-        except asyncio.TimeoutError:
-            logger.warning(f"[{request_id}] Entire request timed out after 5 minutes, using fallback")
-            result = await fallback_analysis(questions_content)
-        except Exception as e:
-            logger.error(f"[{request_id}] Error in multi-question processing: {e}, using fallback")
-            result = await fallback_analysis(questions_content)
-        
-        # Ensure we always have a valid result
         if not result or not isinstance(result, dict):
             logger.warning(f"[{request_id}] Invalid result, using emergency response")
             result = create_emergency_response(questions_content)
